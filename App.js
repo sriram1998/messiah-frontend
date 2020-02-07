@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login from './Components/Login';
+import Tab from './Components/Tab';
 import Welcome from './Components/Welcome';
-import Checkin from './Components/Checkin';
+import Dashboard from './Components/Dashboard';
+import StudentLanding from './Components/StudentLanding';
 
 
 const Stack = createStackNavigator();
@@ -11,10 +12,13 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Checkin" component={Checkin} />
-        <Stack.Screen name="Login" component={Login} />
+      <Stack.Navigator initialRouteName="Tab">
+        <Stack.Screen name="Login" component={Tab} />
         <Stack.Screen name="Details" component={Welcome} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="StudentLanding" component={StudentLanding} />        
+        {/* <Stack.Screen name="Details" component={Welcome} />
+        <Stack.Screen name="Details" component={Welcome} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -13,37 +13,37 @@ export default class Login extends React.Component {
 
   onLogin() {
     const { username, password } = this.state;
-    this.props.navigation.navigate('Details')
-    // Alert.alert('Credentials', `${username} + ${password}`);
+    console.log(username, this.props.type);
+    // this.props.navigation.navigate('Details')
+    // call datafetch
   }
 
   render() {
+
     return (
       <View style={styles.container}>
-        <View style={styles.loginContainer}>
-          <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username'}
-            style={styles.input}
-          // Add icon
-          />
-          <TextInput
-            value={this.state.password}
-            onChangeText={(password) => this.setState({ password })}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            style={styles.input}
-          // Add icon
-          />
+        <TextInput
+          value={this.state.username}
+          onChangeText={(username) => this.setState({ username })}
+          placeholder={'Username'}
+          style={styles.input}
+        // Add icon
+        />
+        <TextInput
+          value={this.state.password}
+          onChangeText={(password) => this.setState({ password })}
+          placeholder={'Password'}
+          secureTextEntry={true}
+          style={styles.input}
+        // Add icon
+        />
 
-          <Button
-            title={'Login'}
-            style={styles.input}
-            onPress={this.onLogin.bind(this)}
-            color="#000000"
-          />
-        </View>
+        <Button
+          title={'Login'}
+          style={styles.input}
+          onPress={this.onLogin.bind(this)}
+          color="#000000"
+        />
       </View>
     );
   }
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     flex: 0.5,
-    width: 300,
+    width: 200,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'black',
