@@ -5,6 +5,7 @@ import Tab from './Components/Tab';
 import Welcome from './Components/Welcome';
 import Dashboard from './Components/Dashboard';
 import StudentLanding from './Components/StudentLanding';
+import Checkin from './Components/Checkin';
 
 
 const Stack = createStackNavigator();
@@ -12,13 +13,13 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Tab">
+      <Stack.Navigator initialRouteName="CheckIn">
         <Stack.Screen name="Login" component={Tab} />
         <Stack.Screen name="Details" component={Welcome} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="StudentLanding" component={StudentLanding} />        
-        {/* <Stack.Screen name="Details" component={Welcome} />
-        <Stack.Screen name="Details" component={Welcome} /> */}
+        <Stack.Screen name="CheckIn" component={Checkin} />
+        {/* <Stack.Screen name="Details" component={Welcome} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
