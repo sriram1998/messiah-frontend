@@ -19,7 +19,10 @@ export default class Dashboard extends React.Component {
     };
   }
   UNSAFE_componentWillMount() {
-    const data = { messID: 1, day: "mon", mealType: "breakfast" };
+    const data1 = { messID: 1, day: "sat", mealType: "lunch" };
+    this.setState({day1: data1.day, meal_type1: data1.mealType});
+    const data2 = { messID: 1, day: "sat", mealType: "dinner" };
+    this.setState({day2: data2.day, meal_type2: data2.mealType});
     axios({
       method: 'post',
       url: 'http://192.168.43.217:80/user/menu',
@@ -27,18 +30,39 @@ export default class Dashboard extends React.Component {
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      data: data,
+      data: data1,
     })
       .then((response) => {
         // console.log(response);
         console.log(response);
         this.setState({
-          menu1: response.data.menu
+          menu1: response.data.menu,
         })
       })
       .catch(function (error) {
         console.log(error);
       });
+
+
+      axios({
+        method: 'post',
+        url: 'http://192.168.43.217:80/user/menu',
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        data: data2,
+      })
+        .then((response) => {
+          // console.log(response);
+          console.log(response);
+          this.setState({
+            menu2: response.data.menu,
+          })
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
   }
 
   render() {
@@ -53,7 +77,7 @@ export default class Dashboard extends React.Component {
           </View>
           <Dash style={{ width: 1, height: 100, flexDirection: 'column' }} />
           <View style={{ flex: 1, padding: 10 }}>
-            <Text>{this.state.meal1}</Text>
+            <Text>{this.state.menu1}</Text>
           </View>
         </Card>
         <View style={{flex: 1}}></View>
@@ -64,7 +88,7 @@ export default class Dashboard extends React.Component {
           </View>
           <Dash style={{ width: 1, height: 100, flexDirection: 'column' }} />
           <View style={{ flex: 1, padding: 10 }}>
-          <Text>{this.state.meal2}</Text>
+          <Text>{this.state.menu2}</Text>
           </View>
         </Card>
         <View style={{flex: 1}}></View>

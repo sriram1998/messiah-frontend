@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { View,  Dimensions, StatusBar,StyleSheet, ImageBackground } from 'react-native';
-import { TabView, SceneMap} from 'react-native-tab-view';
+import { TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import Login from './Login';
+
 
 
 const initialLayout = { width: Dimensions.get('window').width };
@@ -33,6 +34,15 @@ export default function TabViewExample({navigation}) {
       onIndexChange={setIndex}
       initialLayout={initialLayout}
       style={styles.container}
+      tabBarPosition={"bottom"}
+      renderTabBar={(props) =>
+        <TabBar
+          {...props}
+          indicatorStyle={{ backgroundColor: 'white' }}
+          style={{backgroundColor: "black", height: 40}}
+          indicatorStyle={{backgroundColor: "#555555"}}
+        />
+      }
     />
     </ImageBackground>
   );
@@ -40,7 +50,8 @@ export default function TabViewExample({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+
   },
   scene: {
     flex: 1,

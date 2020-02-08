@@ -43,7 +43,7 @@ export default class StudentLanding extends Component {
     return (
       <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
      
-      <View style={{ flex: 1, backgroundColor: '#DCDCDC', flexDirection: 'column' }}>
+      <View style={{ flex: 1, flexDirection: 'column' }}>
         <View style={styles.container}>
           <Card style={{ padding: 50, margin: 10 }}>
             <Text style={{ textAlign: 'center' }}>{this.state.name}</Text>

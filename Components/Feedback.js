@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet,ImageBackground} from 'react-native';
+import { Text, View, StyleSheet,ImageBackground, ScrollView} from 'react-native';
 import { Card } from 'react-native-shadow-cards';
 import Dash from 'react-native-dash';
 import axios from 'axios';

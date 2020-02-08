@@ -112,13 +112,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
+    color:"white"
     // backgroundColor: '#DCDCDC',
   },
   loginContainer: {
     flex: 0.5,
     width: 200,
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: 5,
     borderColor: 'black',
     justifyContent: 'center',
     // backgroundColor: '#DCDCDC',
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: 'black',
-    color: 'black',
+    color: 'white',
     marginBottom: 10,
   },
   fieldcontainer: {
@@ -138,5 +139,6 @@ const styles = StyleSheet.create({
   icon: {
     padding: 10,
     marginLeft: -40,
+    color : "white"
   },
 });

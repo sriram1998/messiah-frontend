@@ -9,15 +9,10 @@ import CatererLanding from './Components/CatererLanding';
 import Checkin from './Components/Checkin';
 import CatererScanner from './Components/CatererScanner';
 import FeedbackInput from './Components/FeedbackInput';
-<<<<<<< HEAD
 import { View, ImageBackground, Text, StyleSheet } from 'react-native';
-
-import Menu from './Components/Menu';
-=======
 import Analytics from './Components/Analytics';
 import  Menu from './Components/Menu';
 import Feedback from './Components/Feedback';
->>>>>>> Add feedback
 
 
 const Stack = createStackNavigator();
@@ -25,7 +20,10 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Login"
+       screenOptions={{
+        headerShown: false
+      }}>
         <Stack.Screen name="Login" component={Tab} />
         <Stack.Screen name="Details" component={Welcome} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
