@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage} from 'react-native';
-import {_storeData, _retrieveData} from '../config/localstorage'
+import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage } from 'react-native';
+import { _storeData, _retrieveData } from '../config/localstorage';
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -24,21 +26,26 @@ export default class Login extends React.Component {
 
     return (
       <View style={styles.container}>
-        <TextInput
-          value={this.state.username}
-          onChangeText={(username) => this.setState({ username })}
-          placeholder={'Username'}
-          style={styles.input}
-        // Add icon
-        />
-        <TextInput
-          value={this.state.password}
-          onChangeText={(password) => this.setState({ password })}
-          placeholder={'Password'}
-          secureTextEntry={true}
-          style={styles.input}
-        // Add icon
-        />
+        <View style={styles.fieldcontainer}>
+          <TextInput
+            value={this.state.username}
+            onChangeText={(username) => this.setState({ username })}
+            placeholder={'Username'}
+            style={styles.input}
+          />
+          <IconAntDesign name='user' size={20} style={styles.icon}/> 
+        </View>
+
+        <View style={styles.fieldcontainer}>
+          <TextInput
+            value={this.state.password}
+            onChangeText={(password) => this.setState({ password })}
+            placeholder={'Password'}
+            secureTextEntry={true}
+            style={styles.input}
+          />
+          <IconMaterialCommunityIcons name='textbox-password' size={20} style={styles.icon} />
+        </View>
 
         <Button
           title={'Login'}
@@ -77,5 +84,12 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     color: 'black',
     marginBottom: 10,
+  },
+  fieldcontainer: {
+    flexDirection: 'row',
+  },
+  icon: {
+    padding: 10,
+    marginLeft: -40,
   },
 });
