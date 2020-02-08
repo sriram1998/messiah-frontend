@@ -14,8 +14,8 @@ export default class Login extends React.Component {
 
   onLogin() {
     const { username, password } = this.state;
-    console.log(username, this.props.type);
-    this.props.navigation.navigate('Dashboard');
+    // console.log(username, this.props.type);
+    this.props.navigation.navigate('StudentLanding');
     // call datafetch
     _storeData("hello", "hel")
   }
