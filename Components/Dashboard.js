@@ -3,33 +3,23 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import axios from 'axios';
+import { Card } from 'react-native-shadow-cards';
+import Dash from 'react-native-dash';
 
-class HomeScreen extends React.Component {
+export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: "Searching..."
+      menu1: "Fetching...",
+      day1: "Fetching...",
+      meal_type1: "Fetching...",
+      menu2: "Fetching...",
+      day2: "Fetching...",
+      meal_type2: "Fetching...",
     };
   }
   UNSAFE_componentWillMount() {
-    const data = {messID: 1, day: "monday", mealType: "lunch"};
-    // const apiConfig = {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data)
-    // };
-    // console.log("user/menu/");
-    // fetch("http://192.168.43.217:80/user/menu", apiConfig)
-    //   .then(function(response) {
-    //     console.log(response);
-        // response.json().then(json => {
-        //   console.log(string(json));
-        //   return json; //Gets cascaded to the next then block
-        // }).catch(err => console.log("hey", err));
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
+    const data = { messID: 1, day: "mon", mealType: "breakfast" };
     axios({
       method: 'post',
       url: 'http://192.168.43.217:80/user/menu',
@@ -37,57 +27,47 @@ class HomeScreen extends React.Component {
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      data: {messID: 1, day: "monday", mealType: "lunch"},
+      data: data,
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then((response) => {
+        // console.log(response);
+        console.log(response);
+        this.setState({
+          menu1: response.data.menu
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>{this.state.menu}</Text>
+        <View style={{flex: 1}}></View>
+        <Card style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
+          <View style={{ flex: 0.5, flexDirection: "column" }}>
+            <Text style={{ flex: 1 }}>{this.state.day1}</Text>
+            <Text>{this.state.meal_type1}</Text>
+          </View>
+          <Dash style={{ width: 1, height: 100, flexDirection: 'column' }} />
+          <View style={{ flex: 1, padding: 10 }}>
+            <Text>{this.state.meal1}</Text>
+          </View>
+        </Card>
+        <View style={{flex: 1}}></View>
+        <Card style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
+          <View style={{ flex: 0.5, flexDirection: "column" }}>
+            <Text style={{ flex: 1 }}>{this.state.day2}</Text>
+            <Text>{this.state.meal_type2}</Text>
+          </View>
+          <Dash style={{ width: 1, height: 100, flexDirection: 'column' }} />
+          <View style={{ flex: 1, padding: 10 }}>
+          <Text>{this.state.meal2}</Text>
+          </View>
+        </Card>
+        <View style={{flex: 1}}></View>
       </View>
     );
   }
 }
-
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-const Tab = createBottomTabNavigator();
-
-export default function App() {
-  return (
-    <NavigationContainer independent={true}>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-}
-// import React, { Component } from 'react';
-// import { Text, View } from 'react-native';
-
-// export default class HelloWorldApp extends Component {
-//   render() {
-//     return (
-//       <View> 
-//         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-//           <Text>At dashboard</Text>
-//         </View>
-//       </View>
-//     );
-//   }
-// }

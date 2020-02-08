@@ -10,6 +10,7 @@ import Checkin from './Components/Checkin';
 import CatererScanner from './Components/CatererScanner';
 import FeedbackInput from './Components/FeedbackInput';
 
+import  Menu from './Components/Menu';
 
 
 const Stack = createStackNavigator();
@@ -17,7 +18,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FeedbackInput">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Tab} />
         <Stack.Screen name="Details" component={Welcome} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
@@ -27,6 +28,7 @@ function App() {
         <Stack.Screen name="CatererScanner" component={CatererScanner} />
         <Stack.Screen name="FeedbackInput" component={FeedbackInput} />
         {/* <Stack.Screen name="Details" component={Welcome} /> */}
+        <Stack.Screen name="Menu" component={Menu} />
       </Stack.Navigator>
     </NavigationContainer>
   );

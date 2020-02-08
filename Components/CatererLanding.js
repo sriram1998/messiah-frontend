@@ -3,7 +3,6 @@ import { StyleSheet, View, Text } from 'react-native';
 import ActionButton from 'react-native-circular-action-menu';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
-// import { Card, Title, Paragraph } from 'react-native-paper';
 import {Card} from 'react-native-shadow-cards';
 
 
