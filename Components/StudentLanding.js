@@ -4,22 +4,53 @@ import ActionButton from 'react-native-circular-action-menu';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 // import { Card, Title, Paragraph } from 'react-native-paper';
-import {Card} from 'react-native-shadow-cards';
+import { Card } from 'react-native-shadow-cards';
+import { _retrieveData } from '../config/localstorage';
 
 
 export default class StudentLanding extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "...",
+      rollNum: "...",
+      mess: "..."
+    }
+  }
+
+
+  componentDidMount() {
+    _retrieveData("name")
+      .then(val => {
+        console.log(val);
+        this.setState({ name: val })
+      })
+      .catch(err => console.log(err));
+
+
+    _retrieveData("rollNum")
+      .then(val => this.setState({ rollNum: val }))
+      .catch(err => console.log(err));
+
+
+    _retrieveData("mess")
+      .then(val => this.setState({ mess: val }))
+      .catch(err => console.log(err));
+  }
 
   render() {
+    console.log(this.state);
     return (
       <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
-      <View style={{ flex:1, flexDirection: 'column' }}>
-       <View style={styles.container}>
-          <Card style={{padding: 50, margin: 10, opacity:5}}>
-            <Text style={{textAlign: 'center',fontWeight: 'bold'}}>Hackilles</Text>
-            <Text style={{textAlign: 'center',fontWeight: 'bold'}}>110116007</Text>
-            <Text style={{textAlign: 'center',fontWeight: 'bold'}}>MM1</Text>
+     
+      <View style={{ flex: 1, backgroundColor: '#DCDCDC', flexDirection: 'column' }}>
+        <View style={styles.container}>
+          <Card style={{ padding: 50, margin: 10 }}>
+            <Text style={{ textAlign: 'center' }}>{this.state.name}</Text>
+            <Text style={{ textAlign: 'center' }}>{this.state.rollNum}</Text>
+            <Text style={{ textAlign: 'center' }}>{this.state.mess}</Text>
           </Card>
-      </View>
+        </View>
         <View style={styles.actioncontainer}>
           <ActionButton buttonColor="rgba(231,76,60,1)">
             <ActionButton.Item buttonColor='#BADA55' title="New Task" onPress={() => this.props.navigation.navigate('Dashboard')}>
@@ -34,13 +65,14 @@ export default class StudentLanding extends Component {
             <ActionButton.Item buttonColor='#003366' title="New Task" onPress={() => this.props.navigation.navigate('StudentLanding')}>
               <IconMaterialCommunityIcons name="food-off" style={styles.actionButtonIcon} />
             </ActionButton.Item>
-            <ActionButton.Item buttonColor='#00ff7f' title="New Task" onPress={() => this.props.navigation.navigate('StudentLanding')}>
+            <ActionButton.Item buttonColor='#00ff7f' title="New Task" onPress={() => this.props.navigation.navigate('FeedbackInput')}>
               <IconMaterial name="feedback" style={styles.actionButtonIcon} />
             </ActionButton.Item>
           </ActionButton>
-        {/* </View> */}
+          {/* </View> */}
+        </View>
       </View>
-    </View>
+    
     </ImageBackground>
     );
   }

@@ -18,34 +18,54 @@ export default class Login extends React.Component {
 
   onLogin() {
     const { username, password } = this.state;
-    this.props.navigation.navigate('StudentLanding');
-    if(username.length<5) {
-      Toast.show('Username too short');
-      return;
+    
+    // if(username.length<5) {
+    //   Toast.show('Username too short');
+    //   return;
+    // }
+    // if(password.length<5) {
+    //   Toast.show('Password too short');
+    //   return;
+    // }
+    if(this.props.type == 'student') {
+      axios({
+        method: 'post',
+        url: 'http://192.168.43.217:80/user/login',
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        data: {roll: username, password: password},
+      })
+      .then(response => {
+        console.log("Hello ", response.data);
+        _storeData("mess", response.data.mess);
+        _storeData("name", response.data.name);
+        _storeData("rollNum", username);
+        this.props.navigation.navigate('StudentLanding');
+      })
+      .catch(function (error) {
+        Toast.show(error.message);
+      });
+    } else {
+      axios({
+        method: 'post',
+        url: 'http://192.168.43.217:80/caterer/login',
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        data: {messName: username, password: password},
+      })
+      .then(response => {
+        console.log(response.data);
+        _storeData("messID", response.data.mess);
+        this.props.navigation.navigate('CatererLanding');
+      })
+      .catch(function (error) {
+        Toast.show(error.message);
+      });
     }
-    if(password.length<5) {
-      Toast.show('Password too short');
-      return;
-    }
-    axios({
-      method: 'post',
-      url: 'http://192.168.43.217:80/user/login',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      data: {roll: username, password: password},
-    })
-    .then(response => {
-      console.log(response.data);
-      _storeData("mess", response.data.mess);
-      _storeData("name", response.data.name);
-      _storeData("rollNum", response.data.rollNum);
-      this.props.navigation.navigate('CatererLanding');
-    })
-    .catch(function (error) {
-      Toast.show(error.message);
-    });
   }
 
   render() {

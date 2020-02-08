@@ -9,32 +9,37 @@ import CatererLanding from './Components/CatererLanding';
 import Checkin from './Components/Checkin';
 import CatererScanner from './Components/CatererScanner';
 import FeedbackInput from './Components/FeedbackInput';
+<<<<<<< HEAD
 import { View, ImageBackground, Text, StyleSheet } from 'react-native';
 
 import Menu from './Components/Menu';
+=======
+import Analytics from './Components/Analytics';
+import  Menu from './Components/Menu';
+import Feedback from './Components/Feedback';
+>>>>>>> Add feedback
 
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
-    <ImageBackground style={styles.container} source={require("./assets/Wallpaper.jpg")}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen name="Login" component={Tab} />
-          <Stack.Screen name="Details" component={Welcome} />
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          <Stack.Screen name="StudentLanding" component={StudentLanding} />
-          <Stack.Screen name="CatererLanding" component={CatererLanding} />
-          <Stack.Screen name="CheckIn" component={Checkin} />
-          <Stack.Screen name="CatererScanner" component={CatererScanner} />
-          <Stack.Screen name="FeedbackInput" component={FeedbackInput} />
-          {/* <Stack.Screen name="Details" component={Welcome} /> */}
-          <Stack.Screen name="Menu" component={Menu} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ImageBackground>
-
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Tab} />
+        <Stack.Screen name="Details" component={Welcome} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="StudentLanding" component={StudentLanding} />   
+        <Stack.Screen name="CatererLanding" component={CatererLanding} />      
+        <Stack.Screen name="CheckIn" component={Checkin} />
+        <Stack.Screen name="CatererScanner" component={CatererScanner} />
+        <Stack.Screen name="FeedbackInput" component={FeedbackInput} />
+        <Stack.Screen name="Analytics" component = {Analytics}/>
+        <Stack.Screen name="ViewFeedback" component = {Feedback} />
+        <Stack.Screen name="Menu" component={Menu} />
+        {/* <Stack.Screen name="Details" component={Welcome} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
