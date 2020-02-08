@@ -5,6 +5,7 @@ import Tab from './Components/Tab';
 import Welcome from './Components/Welcome';
 import Dashboard from './Components/Dashboard';
 import StudentLanding from './Components/StudentLanding';
+import CatererLanding from './Components/CatererLanding';
 import Checkin from './Components/Checkin';
 
 
@@ -17,7 +18,8 @@ function App() {
         <Stack.Screen name="Login" component={Tab} />
         <Stack.Screen name="Details" component={Welcome} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="StudentLanding" component={StudentLanding} />        
+        <Stack.Screen name="StudentLanding" component={StudentLanding} />   
+        <Stack.Screen name="CatererLanding" component={CatererLanding} />      
         <Stack.Screen name="CheckIn" component={Checkin} />
         {/* <Stack.Screen name="Details" component={Welcome} /> */}
       </Stack.Navigator>

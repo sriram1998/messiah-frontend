@@ -18,6 +18,7 @@ export default class Login extends React.Component {
 
   onLogin() {
     const { username, password } = this.state;
+    this.props.navigation.navigate('StudentLanding');
     if(username.length<5) {
       Toast.show('Username too short');
       return;
@@ -26,7 +27,6 @@ export default class Login extends React.Component {
       Toast.show('Password too short');
       return;
     }
-
     axios({
       method: 'post',
       url: 'http://192.168.43.217:80/user/login',
@@ -41,7 +41,7 @@ export default class Login extends React.Component {
       _storeData("mess", response.data.mess);
       _storeData("name", response.data.name);
       _storeData("rollNum", response.data.rollNum);
-      this.props.navigation.navigate('StudentLanding');
+      this.props.navigation.navigate('CatererLanding');
     })
     .catch(function (error) {
       Toast.show(error.message);
