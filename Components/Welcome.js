@@ -6,7 +6,7 @@ class Welcome extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello Anirudh</Text>
+        <Text>Hello</Text>
       </View>
     );
   }
