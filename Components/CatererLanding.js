@@ -20,7 +20,7 @@ export default class StudentLanding extends Component {
         <View style={styles.actioncontainer}>
         <ActionButton buttonColor="rgba(231,76,60,1)">
             <ActionButton.Item buttonColor='#BADA55' title="New Task" onPress={() => this.props.navigation.navigate('ViewFeedback')}>
-            <IconMaterial name="feedback" style={styles.actionButtonIcon} />
+              <IconMaterial name="feedback" style={styles.actionButtonIcon} />
             </ActionButton.Item>
             <ActionButton.Item buttonColor='#7fe5f0' title="New Task" onPress={() => this.props.navigation.navigate('MakeUpdate')}>
               <IconMaterialCommunityIcons name="update" style={styles.actionButtonIcon} />
