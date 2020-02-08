@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ImageBackground, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import axios from 'axios';
@@ -43,6 +43,7 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
+      <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View style={{flex: 1}}></View>
         <Card style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
@@ -68,6 +69,15 @@ export default class Dashboard extends React.Component {
         </Card>
         <View style={{flex: 1}}></View>
       </View>
+      </ImageBackground>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  }
+});

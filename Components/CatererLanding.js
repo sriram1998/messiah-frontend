@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ImageBackground  } from 'react-native';
 import ActionButton from 'react-native-circular-action-menu';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
@@ -10,6 +10,7 @@ export default class StudentLanding extends Component {
 
   render() {
     return (
+      <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
       <View style={{ flex:1, backgroundColor: '#DCDCDC', flexDirection: 'column' }}>
        <View style={styles.container}>
           <Card style={{padding: 50, margin: 10}}>
@@ -34,7 +35,7 @@ export default class StudentLanding extends Component {
         {/* </View> */}
       </View>
     </View>
-
+    </ImageBackground>
     );
   }
 
@@ -60,6 +61,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
   },
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  }
   // card: {
   //   // flex: 1,
   //   // backgroundColor='#DCDCDC',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, TextInput,ScrollView } from 'react-native';
+import { StyleSheet, View, Text, Button, TextInput,ScrollView, ImageBackground } from 'react-native';
 import ActionButton from 'react-native-circular-action-menu';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
@@ -11,7 +11,7 @@ export default class FeedbackInput extends Component {
 
     render() {
         return (
-
+            <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
             <View style={{ flex: 1, backgroundColor: '#DCDCDC' }}>
                 <View style={styles.container}>
                     <Text style={{ fontWeight: 'bold' }}>FEEDBACK FORM</Text>
@@ -34,6 +34,7 @@ export default class FeedbackInput extends Component {
                     />
                 </View>
                 </View>
+                </ImageBackground>
     );
   }
         
@@ -68,4 +69,9 @@ const styles = StyleSheet.create({
         // margin: 500,
 
     },
+    bg: {
+        flex: 1,
+        width: '100%',
+        height: '100%'
+      },
 });

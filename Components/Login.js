@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
-    backgroundColor: '#DCDCDC',
+    // backgroundColor: '#DCDCDC',
   },
   loginContainer: {
     flex: 0.5,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'center',
-    backgroundColor: '#DCDCDC',
+    // backgroundColor: '#DCDCDC',
   },
   input: {
     width: 200,

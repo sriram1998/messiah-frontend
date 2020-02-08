@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { View, StyleSheet, Dimensions, StatusBar } from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { View,  Dimensions, StatusBar,StyleSheet, ImageBackground } from 'react-native';
+import { TabView, SceneMap} from 'react-native-tab-view';
 import Login from './Login';
 
 
@@ -26,6 +26,7 @@ export default function TabViewExample({navigation}) {
   });
 
   return (
+    <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
     <TabView
       navigationState={{ index, routes }}
       renderScene={renderScene}
@@ -33,6 +34,7 @@ export default function TabViewExample({navigation}) {
       initialLayout={initialLayout}
       style={styles.container}
     />
+    </ImageBackground>
   );
 }
 
@@ -43,4 +45,9 @@ const styles = StyleSheet.create({
   scene: {
     flex: 1,
   },
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  }
 });

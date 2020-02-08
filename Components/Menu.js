@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView , StyleSheet, ImageBackground } from 'react-native';
 import { Card } from 'react-native-shadow-cards';
 import Dash from 'react-native-dash';
 
@@ -78,6 +78,7 @@ export default class Menu extends Component {
 
   render() {
     return (
+      <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
       <ScrollView>
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
           <Card style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
@@ -292,6 +293,15 @@ export default class Menu extends Component {
           </Card>
         </View>
       </ScrollView>
+      </ImageBackground>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  }
+});

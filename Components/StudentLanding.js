@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, ImageBackground } from 'react-native';
 import ActionButton from 'react-native-circular-action-menu';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
@@ -11,12 +11,13 @@ export default class StudentLanding extends Component {
 
   render() {
     return (
-      <View style={{ flex:1, backgroundColor: '#DCDCDC', flexDirection: 'column' }}>
+      <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
+      <View style={{ flex:1, flexDirection: 'column' }}>
        <View style={styles.container}>
-          <Card style={{padding: 50, margin: 10}}>
-            <Text style={{textAlign: 'center'}}>Hackilles</Text>
-            <Text style={{textAlign: 'center'}}>110116007</Text>
-            <Text style={{textAlign: 'center'}}>MM1</Text>
+          <Card style={{padding: 50, margin: 10, opacity:5}}>
+            <Text style={{textAlign: 'center',fontWeight: 'bold'}}>Hackilles</Text>
+            <Text style={{textAlign: 'center',fontWeight: 'bold'}}>110116007</Text>
+            <Text style={{textAlign: 'center',fontWeight: 'bold'}}>MM1</Text>
           </Card>
       </View>
         <View style={styles.actioncontainer}>
@@ -40,7 +41,7 @@ export default class StudentLanding extends Component {
         {/* </View> */}
       </View>
     </View>
-
+    </ImageBackground>
     );
   }
 
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 4,
-    backgroundColor: '#DCDCDC',
+    // backgroundColor: '#DCDCDC',
     flexDirection: 'row',
     textAlign: 'center',
     height: 300,
@@ -66,6 +67,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
   },
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  }
   // card: {
   //   // flex: 1,
   //   // backgroundColor='#DCDCDC',

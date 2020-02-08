@@ -9,7 +9,8 @@ import {
   StyleSheet,
   View,
   TextInput,
-  Button
+  Button,
+  ImageBackground
 } from 'react-native';
 
 
@@ -32,6 +33,7 @@ export default class Checkin extends Component {
 
   render() {
     return (
+      <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
       <View style={styles.container}>
         {this.state.text === "" ? <Button
           title={'Generate Qr'}
@@ -48,6 +50,7 @@ export default class Checkin extends Component {
         }
 
       </View>
+      </ImageBackground>
     );
   };
 }
@@ -67,5 +70,10 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     padding: 5,
-  }
+  },
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  },
 });

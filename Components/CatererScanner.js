@@ -1,7 +1,7 @@
 import * as React from 'react';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
-import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage} from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage,ImageBackground} from 'react-native';
 import {_storeData, _retrieveData} from '../config/localstorage'
 import Toast from 'react-native-simple-toast';
 import axios from 'axios';
@@ -51,6 +51,7 @@ export default class Login extends React.Component {
   render() {
 
     return (
+      <ImageBackground style={styles.bg} source={require("../assets/Wallpaper.jpg")}>
       <View style={styles.container}>
         <View style={styles.fieldcontainer}>
           <TextInput
@@ -80,6 +81,7 @@ export default class Login extends React.Component {
           color="#000000"
         />
       </View>
+      </ImageBackground>
     );
   }
 }
@@ -117,5 +119,10 @@ const styles = StyleSheet.create({
   icon: {
     padding: 10,
     marginLeft: -40,
+  },
+  bg: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
   },
 });
