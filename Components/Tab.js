@@ -3,17 +3,17 @@ import { View, StyleSheet, Dimensions, StatusBar } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
 import Login from './Login';
 
-const StudentRoute = () => (
-  <Login type={"student"} />
-);
-
-const CatererRoute = () => (
-  <Login type={"caterer"} />
-);
 
 const initialLayout = { width: Dimensions.get('window').width };
 
-export default function TabViewExample() {
+export default function TabViewExample({navigation}) {
+  const StudentRoute = () => (
+    <Login type={"student"} navigation={navigation}/>
+  );
+  
+  const CatererRoute = () => (
+    <Login type={"caterer"} navigation={navigation}/>
+  );
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'student', title: 'STUDENT' },

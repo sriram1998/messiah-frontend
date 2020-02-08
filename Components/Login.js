@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Alert, Button, TextInput, View, StyleSheet } from 'react-native';
+import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage} from 'react-native';
+import {_storeData, _retrieveData} from '../config/localstorage'
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -14,8 +15,9 @@ export default class Login extends React.Component {
   onLogin() {
     const { username, password } = this.state;
     console.log(username, this.props.type);
-    // this.props.navigation.navigate('Details')
+    this.props.navigation.navigate('Dashboard');
     // call datafetch
+    _storeData("hello", "hel")
   }
 
   render() {
