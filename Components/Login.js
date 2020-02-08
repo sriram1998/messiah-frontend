@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage } from 'react-native';
-import { _storeData, _retrieveData } from '../config/localstorage';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
+import { Alert, Button, TextInput, View, StyleSheet, AsyncStorage} from 'react-native';
+import {_storeData, _retrieveData} from '../config/localstorage'
+import Toast from 'react-native-simple-toast';
+import axios from 'axios';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -16,10 +18,34 @@ export default class Login extends React.Component {
 
   onLogin() {
     const { username, password } = this.state;
-    // console.log(username, this.props.type);
-    this.props.navigation.navigate('StudentLanding');
-    // call datafetch
-    _storeData("hello", "hel")
+    if(username.length<5) {
+      Toast.show('Username too short');
+      return;
+    }
+    if(password.length<5) {
+      Toast.show('Password too short');
+      return;
+    }
+
+    axios({
+      method: 'post',
+      url: 'http://192.168.43.217:80/user/login',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      data: {roll: username, password: password},
+    })
+    .then(response => {
+      console.log(response.data);
+      _storeData("mess", response.data.mess);
+      _storeData("name", response.data.name);
+      _storeData("rollNum", response.data.rollNum);
+      this.props.navigation.navigate('StudentLanding');
+    })
+    .catch(function (error) {
+      Toast.show(error.message);
+    });
   }
 
   render() {

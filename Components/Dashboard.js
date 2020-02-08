@@ -12,8 +12,7 @@ class HomeScreen extends React.Component {
     };
   }
   UNSAFE_componentWillMount() {
-    let data = { messID: 1, day: "monday", mealType: "lunch" };
-
+    const data = {messID: 1, day: "monday", mealType: "lunch"};
     // const apiConfig = {
     //   method: 'POST',
     //   headers: { 'Content-Type': 'application/json' },
@@ -23,11 +22,10 @@ class HomeScreen extends React.Component {
     // fetch("http://192.168.43.217:80/user/menu", apiConfig)
     //   .then(function(response) {
     //     console.log(response);
-    //     // response.json().then(json => {
-    //     //   console.log("hello");
-    //     //   console.log(string(json));
-    //     //   return json; //Gets cascaded to the next then block
-    //     // }).catch(err => console.log("hey", err));
+        // response.json().then(json => {
+        //   console.log(string(json));
+        //   return json; //Gets cascaded to the next then block
+        // }).catch(err => console.log("hey", err));
     //   })
     //   .catch(err => {
     //     console.log(err);
@@ -36,10 +34,10 @@ class HomeScreen extends React.Component {
       method: 'post',
       url: 'http://192.168.43.217:80/user/menu',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json',
+        "Content-Type": "application/json",
+        "Accept": "application/json",
       },
-      data
+      data: {messID: 1, day: "monday", mealType: "lunch"},
     })
     .then(function (response) {
       console.log(response);
