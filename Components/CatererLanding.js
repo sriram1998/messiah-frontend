@@ -31,6 +31,9 @@ export default class StudentLanding extends Component {
             <ActionButton.Item buttonColor='#40e0d0' title="New Task" onPress={() => this.props.navigation.navigate('QRScanner')}>
               <IconMaterialCommunityIcons name="qrcode-scan" style={styles.actionButtonIcon} />
             </ActionButton.Item>
+            <ActionButton.Item buttonColor='#40e0d0' title="New Task" onPress={() => this.props.navigation.navigate('FoodConsume')}>
+              <IconMaterialCommunityIcons name="brain" style={styles.actionButtonIcon} />
+            </ActionButton.Item>
           </ActionButton>
         {/* </View> */}
       </View>

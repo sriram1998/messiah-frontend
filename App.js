@@ -13,6 +13,7 @@ import { View, ImageBackground, Text, StyleSheet } from 'react-native';
 import Analytics from './Components/Analytics';
 import  Menu from './Components/Menu';
 import Feedback from './Components/Feedback';
+import FoodConsume from './Components/FoodConsume'
 
 
 const Stack = createStackNavigator();
@@ -33,6 +34,7 @@ function App() {
         <Stack.Screen name="CatererScanner" component={CatererScanner} />
         <Stack.Screen name="FeedbackInput" component={FeedbackInput} />
         <Stack.Screen name="Analytics" component = {Analytics}/>
+        <Stack.Screen name="FoodConsume" component = {FoodConsume} />
         <Stack.Screen name="ViewFeedback" component = {Feedback} />
         <Stack.Screen name="Menu" component={Menu} />
         {/* <Stack.Screen name="Details" component={Welcome} /> */}
