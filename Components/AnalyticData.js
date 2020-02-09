@@ -20,17 +20,17 @@ export default class AnalyticData extends Component {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
             },
-            data: { messID: 1, date: "20-02-20" },
+            data: { messID: 1},
         })
             .then(response => {
                 this.state.studentData.push(response.data.response.map((item, index) => {
                     return (
                         <Card key={index} style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
-                            <View style={{ flex: 0.5, flexDirection: "column" }}>
-                                <Text style={{ flex: 1 }}>Day {index+1}</Text>
+                            <View style={{ flex: 0.5, flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                                <Text style={{ flex: 1, textAlign: "center"}}>Day {index+1}</Text>
                             </View>
                             <Dash style={{ width: 1, height: 120, flexDirection: 'column' }} />
-                            <View style={{ flex: 1, padding: 20 }}>
+                            <View style={{ flex: 1, padding: 20, flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
                                 <Text>{item} students </Text>
                             </View>
                         </Card>
