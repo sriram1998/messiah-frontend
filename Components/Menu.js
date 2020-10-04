@@ -58,9 +58,9 @@ export default class Menu extends Component {
                   })
                     .then(response => {
                       console.log(response.data);
-                      _storeData("mess", response.data.mess);
-                      _storeData("name", response.data.name);
-                      _storeData("rollNum", response.data.rollNum);
+//                       _storeData("mess", response.data.mess);
+//                       _storeData("name", response.data.name);
+//                       _storeData("rollNum", response.data.rollNum);
                       this.props.navigation.navigate('CatererLanding');
                     })
                     .catch(function (error) {
