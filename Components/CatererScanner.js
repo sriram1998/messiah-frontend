@@ -27,25 +27,25 @@ export default class Login extends React.Component {
       Toast.show('Password too short');
       return;
     }
-    // axios({
-    //   method: 'post',
-    //   url: 'http://192.168.43.217:80/user/login',
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json",
-    //   },
-    //   data: {roll: username, password: password},
-    // })
-    // .then(response => {
-    //   console.log(response.data);
+    axios({
+      method: 'post',
+      url: 'http://192.168.43.217:80/user/login',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      data: {roll: username, password: password},
+    })
+    .then(response => {
+      console.log(response.data);
     //   _storeData("mess", response.data.mess);
     //   _storeData("name", response.data.name);
     //   _storeData("rollNum", response.data.rollNum);
     //   this.props.navigation.navigate('CatererLanding');
-    // })
-    // .catch(function (error) {
-    //   Toast.show(error.message);
-    // });
+    })
+    .catch(function (error) {
+      Toast.show(error.message);
+    });
   }
 
   render() {
