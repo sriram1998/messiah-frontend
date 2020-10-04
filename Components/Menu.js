@@ -33,47 +33,47 @@ export default class Menu extends Component {
     //     });
     //   }http://192.168.43.217:80
     // }
-    // let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], mealtype = ["Breakfast", "Lunch", "Dinner"];
-    // this.setState({
-    //   content: days.map((item1, index1) => {
-    //     return
-    //     {
-    //       mealtype.map((item2, index2) => {
-    //         return (
-    //           <Card style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
-    //             <View style={{ flex: 0.5, flexDirection: "column" }}>
-    //               <Text style={{ flex: 1 }}>item1</Text>
-    //               <Text>item2</Text>
-    //             </View>
-    //             <Dash style={{ width: 1, height: 100, flexDirection: 'column' }} />
-    //             <View style={{ flex: 1, padding: 10 }}>
-    //               {axios({
-    //                 method: 'post',
-    //                 url: 'http://192.168.43.217:80/user/allMenu',
-    //                 headers: {
-    //                   "Content-Type": "application/json",
-    //                   "Accept": "application/json",
-    //                 },
-    //                 data: { messID: 1, day: index1+1 },
-    //               })
-    //                 .then(response => {
-    //                   console.log(response.data);
-    //                   _storeData("mess", response.data.mess);
-    //                   _storeData("name", response.data.name);
-    //                   _storeData("rollNum", response.data.rollNum);
-    //                   this.props.navigation.navigate('CatererLanding');
-    //                 })
-    //                 .catch(function (error) {
-    //                   console.log(error);
-    //                 })}
-    //               <Text>Pongal</Text>
-    //             </View>
-    //           </Card>
-    //         )
-    //       })
-    //     }
-    //   })
-    // })
+    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], mealtype = ["Breakfast", "Lunch", "Dinner"];
+    this.setState({
+      content: days.map((item1, index1) => {
+        return
+        {
+          mealtype.map((item2, index2) => {
+            return (
+              <Card style={{ padding: 20, margin: 10, flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 0.5, flexDirection: "column" }}>
+                  <Text style={{ flex: 1 }}>item1</Text>
+                  <Text>item2</Text>
+                </View>
+                <Dash style={{ width: 1, height: 100, flexDirection: 'column' }} />
+                <View style={{ flex: 1, padding: 10 }}>
+                  {axios({
+                    method: 'post',
+                    url: 'http://192.168.43.217:80/user/allMenu',
+                    headers: {
+                      "Content-Type": "application/json",
+                      "Accept": "application/json",
+                    },
+                    data: { messID: 1, day: index1+1 },
+                  })
+                    .then(response => {
+                      console.log(response.data);
+                      _storeData("mess", response.data.mess);
+                      _storeData("name", response.data.name);
+                      _storeData("rollNum", response.data.rollNum);
+                      this.props.navigation.navigate('CatererLanding');
+                    })
+                    .catch(function (error) {
+                      Toast.show(error.message);
+                    })}
+                  <Text>Pongal</Text>
+                </View>
+              </Card>
+            )
+          })
+        }
+      })
+    })
   }
 
   render() {
