@@ -38,10 +38,10 @@ export default class Login extends React.Component {
     })
     .then(response => {
       console.log(response.data);
-    //   _storeData("mess", response.data.mess);
-    //   _storeData("name", response.data.name);
-    //   _storeData("rollNum", response.data.rollNum);
-    //   this.props.navigation.navigate('CatererLanding');
+      _storeData("mess", response.data.mess);
+      _storeData("name", response.data.name);
+      _storeData("rollNum", response.data.rollNum);
+      this.props.navigation.navigate('CatererLanding');
     })
     .catch(function (error) {
       Toast.show(error.message);
