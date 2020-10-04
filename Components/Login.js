@@ -19,14 +19,14 @@ export default class Login extends React.Component {
   onLogin() {
     const { username, password } = this.state;
     
-    // if(username.length<5) {
-    //   Toast.show('Username too short');
-    //   return;
-    // }
-    // if(password.length<5) {
-    //   Toast.show('Password too short');
-    //   return;
-    // }
+    if(username.length<5) {
+      Toast.show('Username too short');
+      return;
+    }
+    if(password.length<5) {
+      Toast.show('Password too short');
+      return;
+    }
     if(this.props.type == 'student') {
       axios({
         method: 'post',
