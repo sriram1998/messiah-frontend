@@ -17,16 +17,16 @@ export default class Login extends React.Component {
   }
 
   onLogin() {
-    // const { username, password } = this.state;
-    // this.props.navigation.navigate('StudentLanding');
-    // if(username.length<5) {
-    //   Toast.show('Username too short');
-    //   return;
-    // }
-    // if(password.length<5) {
-    //   Toast.show('Password too short');
-    //   return;
-    // }
+    const { username, password } = this.state;
+    this.props.navigation.navigate('StudentLanding');
+    if(username.length<5) {
+      Toast.show('Username too short');
+      return;
+    }
+    if(password.length<5) {
+      Toast.show('Password too short');
+      return;
+    }
     // axios({
     //   method: 'post',
     //   url: 'http://192.168.43.217:80/user/login',
