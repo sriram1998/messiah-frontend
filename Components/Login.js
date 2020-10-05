@@ -17,7 +17,16 @@ export default class Login extends React.Component {
   }
 
   onLogin() {
-    const { username, password } = this.state;
+    const { userEmail, username, password } = this.state;
+    
+    userEmail = userEmail.split("@");
+    const userEmailBeforeAt = userEmail[0];
+    const userEmailAfterAt = userEmail[1];
+    const userEmailBeforePlus = userEmailBeforeAt.split("+")[0];
+    const regExStr = `[^A-Za-z0-9]`;
+    const re = regexp.MustCompile(regExStr);
+    const userEmailStripped = re.ReplaceAllString(userEmailBeforePlus, "");
+    const finalEmail = userEmailStripped + "@" + userEmailAfterAt;
     
     if(username.length<5) {
       Toast.show('Username too short');
@@ -35,7 +44,7 @@ export default class Login extends React.Component {
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        data: {roll: username, password: password},
+        data: {roll: username, password: password, email: finalEmail},
       })
       .then(response => {
         console.log("Hello ", response.data);
